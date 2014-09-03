@@ -3,7 +3,7 @@
 var protobuf = require('protobufjs');
 var fs = require('fs');
 
-var builder = protobuf.loadProto(fs.readFileSync('obj.proto'));
+var builder = protobuf.loadProto(fs.readFileSync(__dirname + '/obj.proto'));
 var filenames = process.argv.slice(2);
 
 
