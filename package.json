@@ -18,5 +18,9 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/rasteiner/obj2pb/issues"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "obj2pb": "obj2pb.js"
   }
 }
