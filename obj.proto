@@ -1,30 +1,26 @@
 message Model {
     required string name = 1;
     repeated Mesh meshes = 2;
+    repeated Vector3 vertices = 3;
+    repeated Vector3 uvs = 4;
+    repeated Vector3 normals = 5;
+
+    message Vector3 {
+        required float x = 1;
+        optional float y = 2;
+        optional float z = 3;
+    }
 
     message Mesh {
-        required Geometry geometry = 1;
+        required string name = 1;
         optional string material = 2;
+        repeated Face faces = 3;
 
-        message Geometry {
-            required int32 index = 1;
-            repeated Face faces = 2;
-            repeated Vector3 vertices = 3;
-            repeated Vector3 uvs = 4;
-            repeated Vector3 normals = 5;
-
-            message Vector3 {
-                required float x = 2;
-                optional float y = 3;
-                optional float z = 4;
-            }
-
-            message Face {
-                required uint32 index = 1;
-                repeated uint32 vertices = 2 [packed=true];
-                repeated uint32 uvs = 3 [packed=true];
-                repeated uint32 normals = 4 [packed=true];
-            }
+        message Face {
+            required uint32 index = 1;
+            repeated uint32 vertices = 2 [packed=true];
+            repeated uint32 uvs = 3 [packed=true];
+            repeated uint32 normals = 4 [packed=true];
         }
     }
 }
